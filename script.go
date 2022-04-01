@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strconv"
 )
 
 type TxResponse struct {
@@ -60,8 +61,17 @@ func main() {
 		}
 
 		if result.Result == nil {
-			fmt.Println(AllStateSyncs[i])
+			fmt.Println("Missing :  " + AllStateSyncs[i])
 			break
+		} else {
+			n, err := strconv.ParseUint(result.Result.BlockNumber[2:], 16, 64)
+			if err != nil {
+				panic(err)
+			}
+			fmt.Println(n)
+			if i == 0 {
+				fmt.Println("No Missing StateSyncs")
+			}
 		}
 	}
 
