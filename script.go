@@ -64,11 +64,11 @@ func main() {
 			fmt.Println("Missing :  " + AllStateSyncs[i])
 			break
 		} else {
-			n, err := strconv.ParseUint(result.Result.BlockNumber[2:], 16, 64)
-			if err != nil {
-				panic(err)
-			}
-			fmt.Println(n)
+// 			n, err := strconv.ParseUint(result.Result.BlockNumber[2:], 16, 64)
+// 			if err != nil {
+// 				panic(err)
+// 			}
+// 			fmt.Println(n)
 			if i == 0 {
 				fmt.Println("No Missing StateSyncs")
 			}
